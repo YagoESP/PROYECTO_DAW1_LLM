@@ -1,0 +1,307 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #f5f5f5;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Banner superior */
+.top-banner {
+    background-color: #f5f5f5;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+    padding: 8px 0;
+}
+
+/* Banners principales */
+.banner-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.banner-card {
+    position: relative;
+    border-radius: 12px;
+    padding: 16px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.banner-card h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.banner-card p {
+    margin: 4px 0;
+}
+
+/* Colores de banners específicos */
+.banner-card.apple {
+    background: linear-gradient(135deg, #f97316, #f97316);
+}
+
+.banner-card.ofertas {
+    background: linear-gradient(135deg, #ff5a5f, #ff9800);
+}
+
+.banner-card.reacondicionados {
+    background: linear-gradient(135deg, #4a90e2, #7b61ff);
+}
+
+/* Botones + */
+.add-button {
+    border: none;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    background-color: #fff;
+    color: #ff5a00;
+    cursor: pointer;
+}
+
+.add-button-blue {
+    color: #4a90e2;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    background-color: #fff;
+    color: #ff5a00;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.badge-purple {
+    display: inline-block;
+    background-color: #fff;
+    color: #7b61ff;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-dark {
+    color: #333;
+    font-size: 28px;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+/*ofertas */
+.offers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0 16px;
+}
+
+.offers-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.offers-header a {
+    text-decoration: none;
+    color: #ff5a00;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Grid de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.product-title {
+    font-size: 13px;
+    margin: 8px 0;
+    min-height: 40px;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.current-price {
+    font-weight: 700;
+    color: #ff5a00;
+    font-size: 16px;
+}
+
+.old-price {
+    font-size: 13px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* Badges productos */
+.discount-badge,
+.featured-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.discount-badge {
+    background-color: #ff5a00;
+}
+
+.featured-badge {
+    background-color: #ff007a;
+}
+
+/* banner samsung publicitario */
+
+.banner-samsung {
+    display: flex;
+    align-items: center;
+    height: 80px; /* Ajusta según la imagen */
+    background: linear-gradient(135deg, #a8c0ff 0%, #e6dada 50%, #f0f2ff 100%); /* Gradiente lila-azul claro aproximado */
+    border-radius: 12px;
+    padding: 0 24px;
+    box-shadow: 0 8px 32px rgba(0, 123, 255, 0.2);
+    max-width: 728px; /* Ancho típico de banner */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-samsung {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    background: rgba(255,255,255,0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 16px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.star {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.date {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.3;
+}
+
+.cta {
+    background: rgba(255,255,255,0.6);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #007bff;
+    font-size: 14px;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta:hover {
+    background: rgba(255,255,255,0.9);
+}
+
+.cube {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    opacity: 0.8;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.promo-card{
+    margin: 1rem;
+}
+
+.promo-card img {
+  width: 100%;    
+  object-fit: contain; /* se ve completa sin deformarse */
+  display: block;
+}
+
+/* Responsive básico */
+@media (max-width: 992px) {
+    .banner-section {
+        grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 8px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
