@@ -1,0 +1,149 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: white;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    nav {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .logo {
+            max-width: 7rem;
+        }
+        .oc{
+            padding: 10px;
+            height: 3rem;
+            align-content: center;
+        }
+        .oc:hover{
+            background-color: rgba(239, 237, 237, 0.738);
+            transition: 0.2s;
+            border-radius: 5px;
+        }
+        .barra-busqueda{
+            display: flex;
+            height: 3rem;
+            width: 40%;
+            border: 1px solid black;
+            border-radius: 5px;
+            .catalogo{
+                padding: 1rem;
+                text-align: left;
+                border: none;
+                border-radius: 5px;
+            }
+            .buscar{
+                display: flex;
+                width: 10rem;
+                input{
+                    border-radius: 0;
+                    border: none;
+                    border-left: 1px solid black;
+                }
+                button{
+                    
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+        }
+
+        .top-bar-right{
+            a{
+                margin: 0 1rem 0 1rem;
+                text-decoration: none;
+            }
+            .buscar-ia{
+                border: 1px solid rgba(239, 237, 237, 0.738);
+            }
+            .btn-d {
+                height: 3rem;
+                padding: 1rem;
+                background-color: transparent;
+                border-radius: 5px;
+            }
+            .mi-cuenta, .mi-cesta{
+                border: none;
+            }
+            .btn-d:hover{
+                background-color: rgba(239, 237, 237, 0.738);
+            }
+        }
+    }
+
+    .sub-header{
+        padding: 0.5rem;
+        display: flex;
+        justify-content: right;
+        gap: 1rem;
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+/* Escondemos el checkbox real */
+.offcanvas-check {
+    display: none;
+}
+
+/* Estilo inicial del menú (fuera de la pantalla a la izquierda) */
+.offcanvas {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Ancho del menú hacia afuera */
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Capa oscura de fondo (oculta por defecto) */
+.capa-oscura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 999;
+}
+
+/* --- LA MAGIA --- */
+
+/* Cuando el checkbox está marcado, movemos el menú a la posición 0 */
+.offcanvas-check:checked ~ .offcanvas {
+    left: 0;
+}
+
+/* Cuando el checkbox está marcado, mostramos la capa oscura */
+.offcanvas-check:checked ~ .capa-oscura {
+    display: block;
+}
+
+/* Evitar scroll en el body cuando está abierto (limitación CSS) */
+/* Nota: Sin JS es difícil bloquear el scroll del body perfectamente, 
+   pero esto ayuda visualmente. */
+
+main{
+    margin-top: 8rem;
+    padding: 1rem 4rem;
+    text-align: justify;
+}
