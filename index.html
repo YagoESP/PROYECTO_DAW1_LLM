@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +6,71 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <header>
+        <nav>
+            <!--logo-->
+            <a  href="index.html"><!--target="_blank"-->
+                <img src="./img/logo-llm.png" alt="" class="logo">
+            </a>
+            <!--todas las categorías-->
+            <div class="oc">
+                <input type="checkbox" id="menu-toggle" class="offcanvas-check">
+
+                <label for="menu-toggle" class="btn-abrir">
+                    ☰ Todas las categorías
+                </label>
+
+                <div class="offcanvas">
+                    <div class="header-menu">
+                        <label for="menu-toggle" class="btn-cerrar">✕</label>
+                        <h5>Menú Lateral</h5>
+                    </div>
+                    <ul class="lista-nav">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                    </ul>
+                </div>
+
+                <label for="menu-toggle" class="capa-oscura"></label>
+            </div>
+
+            <!--barra de búsqueda-->
+            <section class="barra-busqueda">
+                <select class="catalogo" aria-label="Default select example">
+                    <option selected>Todo el catálogo</option>
+                    <option value="1">Reacondicinados</option>
+                </select>
+
+                <div class="buscar">
+                    <input type="text" placeholder="   Buscar">
+                    <!--<button><i class="fa-solid fa-magnifying-glass"></i></button>-->
+                </div>
+            </section>
+
+            <!--Botones-->
+            <section class="top-bar-right">
+                <button type="button" class="buscar-ia btn-d"><i class="fa-solid fa-user"></i> Buscar con IA</button>
+
+                <a href="mi-cuenta.html"><!--target="_blank"-->
+                    <button type="button" class="mi-cuenta btn-d"><i class="fa-solid fa-user"></i> Mi cuenta</button>
+                </a>
+
+                <button type="button" class="mi-cesta btn-d"><i class="fa-solid fa-user"></i> Mi Cesta</button>
+            </section>
+        </nav>
+        <hr>
+        <section class="sub-header">
+            <a href="https://www.google.com" class="g-u"><!--target="_blank"-->
+                <p>Galaxy Unpacked</p>
+            </a>
+
+            <a href="https://www.google.com" class="efecto cyo"><!--target="_blank"-->
+                <p>Campañas y Ofertas</p>
+            </a>
+        </section>
+        <hr>
+    </header>
     <main>
         <div class="top-banner">
             Expertos en tecnología con un servicio 5 estrellas
