@@ -429,115 +429,85 @@ main {
 
 /* MAIN SEGUNDA PARTE */
 
+/*carrusel-iconos*/
 .carrusel-iconos {
-            .carrusel {
-                display: flex;
-                justify-content: space-around;
+    background-color: white;
+    border-radius: 1rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 15vw;
+    overflow-x: auto;
+    gap: 2rem;
+}
 
-                article {
-                    width: 200px;
-                    margin: 5px;
-                }
-            }
-        }
+/* products-carrusel */
+.products-carrusel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 15.6%;
+    gap: 16px;
+    overflow-x: scroll;
+}
 
-        .seleccion-top {
+/*seleccion-top*/
+.seleccion-top {
+    display: flex;
+    background-color: whitesmoke;
+
+    .cabecera-seccion {
+        width: 20%;
+    }
+
+    .contenedor-carrusel {
+        width: 80%;
+
+        nav {
             display: flex;
-            background-color: whitesmoke;
+        }
 
-            .cabecera-seccion {
-                width: 20%;
-            }
+        .carrusel {
+            display: flex;
+            overflow-x: auto;
 
-            .contenedor-carrusel {
-                width: 80%;
+            article {
+                background-color: white;
+                min-width: 300px;
+                margin: 5px;
 
-                nav {
+                img {
+                    width: 100%;
+                }
+
+                .contenedor-precio {
                     display: flex;
                 }
 
-                .carrusel {
+                .contenedor-valoracion {
                     display: flex;
-                    overflow-x: auto;
-
-                    article {
-                        background-color: white;
-                        min-width: 300px;
-                        margin: 5px;
-
-                        img {
-                            width: 100%;
-                        }
-
-                        .contenedor-precio {
-                            display: flex;
-                        }
-
-                        .contenedor-valoracion {
-                            display: flex;
-                        }
-                    }
                 }
             }
         }
+    }
+}
+/* basado-en-navegacion y mas-vendidos*/
+.seccion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0 16px;
+}
 
-        .basado-en-navegacion {
-            .cabecera-seccion {
-                display: flex;
-                justify-content: space-between;
-            }
+.seccion-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
 
-            .carrusel {
-                display: flex;
-                overflow-x: auto;
-
-                article {
-                    min-width: 300px;
-                    margin: 5px;
-
-                    img {
-                        width: 100%;
-                    }
-
-                    .contenedor-precio {
-                        display: flex;
-                    }
-
-                    .contenedor-valoracion {
-                        display: flex;
-                    }
-                }
-            }
-        }
-
-        .mas-vendidos {
-            .cabecera-seccion {
-                display: flex;
-                justify-content: space-between;
-            }
-
-            .carrusel {
-                display: flex;
-                flex-wrap: wrap;
-
-                article {
-                    width: 300px;
-                    margin: 5px;
-
-                    img {
-                        width: 100%;
-                    }
-
-                    .contenedor-precio {
-                        display: flex;
-                    }
-
-                    .contenedor-valoracion {
-                        display: flex;
-                    }
-                }
-            }
-        }
+.seccion-header a {
+    text-decoration: none;
+    color: #ff5a00;
+    font-weight: 600;
+    font-size: 14px;
+}
 
 /* FINALIZACION MAIN 2*/
 
