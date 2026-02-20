@@ -435,7 +435,7 @@ main {
     border-radius: 1rem;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 15vw;
+    grid-auto-columns: 15.6%;
     overflow-x: auto;
     gap: 2rem;
 }
