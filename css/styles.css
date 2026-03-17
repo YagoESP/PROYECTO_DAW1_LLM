@@ -516,7 +516,169 @@ main {
 
 /* FINALIZACION MAIN 2*/
 
-/*FOOTER*/
+/*FOOTER Carlos*/
+:root {
+    --primary-orange: #ff6000;
+    --text-dark: #333;
+    --text-light: #666;
+    --border-color: #eee;
+    --bg-footer: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pc-footer {
+    background: var(--bg-footer);
+    color: var(--text-dark);
+    width: 100%;
+}
+
+/* Logos de marcas superiores */
+
+/* CARRUSEL MARCAS */
+.brands {
+    background-color: white;
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    /*justify-content: center;
+            align-items: center;*/
+    gap: 40px;
+    padding: 60px 100px;
+}
+
+.brands img {
+    height: 38px;
+}
+
+/* Contenedor principal */
+.footer-container {
+    max-width: 1500px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Sección de texto informativo */
+.footer-info {
+    padding: 40px 0;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.footer-info h4 {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.footer-info b {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.footer-info ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.footer-info ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.footer-info ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+/* Grid de enlaces */
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 1.8fr;
+    gap: 25px;
+    padding: 45px 0;
+}
+
+.footer-links h5 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-weight: 700;
+    text-transform: none;
+}
+
+.footer-links a {
+    display: block;
+    color: var(--text-light);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 15px;
+    height: 35px;
+}
+
+.footer-links a i {
+    color: #000;
+    height: 30px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-orange);
+}
+
+/* Iconos redes sociales */
+.footer-links i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+/* Columna de pagos */
+.badges-payments {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.badges,
+.payments {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.badges img {
+    height: 40px;
+}
+
+.payments img {
+    height: 28px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 2px;
+    background: white;
+}
+
+/* Pie de página */
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    padding: 30px 0;
+    line-height: 1.5;
+}
 
 /*FINALIZACION FOOTER*/
 
