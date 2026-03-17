@@ -6,7 +6,7 @@ let articleList = [];
 
 //3. Recibe los datos del json
 async function getArticles() {
-    const response = await fetch('./data/articles.json'); //La direccion no parte de este archivo, parte del index html que estará cargando este fichero
+    const response = await fetch('../data/articles.json'); //La direccion no parte de este archivo, parte del index html que estará cargando este fichero
     const data = await response.json();
     return data;
 }
@@ -20,7 +20,7 @@ function renderArticles(articlesJSON) {
             <article class="product-card"><!--Esta es una de las cards para los productos-->
                 <div><!--Contenedor para la imagen-->
                     <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                    <img src=${article.image} alt="imagen del producto" class="product-image">
+                    <img src=.${article.image} alt="imagen del producto" class="product-image">
                 </div>
                 <div><!--Contenedor para la informacion-->
                     <p class="product-title">${article.name}</p>
@@ -39,7 +39,7 @@ function renderArticles(articlesJSON) {
             <article class="product-card"><!--Esta es una de las cards para los productos-->
                 <div><!--Contenedor para la imagen-->
                     <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                    <img src=${article.image} alt="imagen del producto" class="product-image">
+                    <img src=.${article.image} alt="imagen del producto" class="product-image">
                 </div>
                 <div><!--Contenedor para la informacion-->
                     <p class="product-title">${article.name}</p>
@@ -58,7 +58,7 @@ function renderArticles(articlesJSON) {
             <article class="product-card"><!--Esta es una de las cards para los productos-->
                 <div><!--Contenedor para la imagen-->
                     <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                    <img src=${article.image} alt="imagen del producto" class="product-image">
+                    <img src=.${article.image} alt="imagen del producto" class="product-image">
                 </div>
                 <div><!--Contenedor para la informacion-->
                     <p class="product-title">${article.name}</p>
