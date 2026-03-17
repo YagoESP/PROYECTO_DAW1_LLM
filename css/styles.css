@@ -454,6 +454,7 @@ main {
     grid-auto-columns: 15.6%;
     overflow-x: auto;
     gap: 2rem;
+    text-align: center;
 }
 
 /* products-carrusel */
@@ -481,30 +482,18 @@ main {
             display: flex;
         }
 
-        .carrusel {
+        .products-carrusel {
             display: flex;
             overflow-x: auto;
 
             article {
                 background-color: white;
-                min-width: 300px;
-                margin: 5px;
-
-                img {
-                    width: 100%;
-                }
-
-                .contenedor-precio {
-                    display: flex;
-                }
-
-                .contenedor-valoracion {
-                    display: flex;
-                }
+                flex: 0 0 15.6%;
             }
         }
     }
 }
+
 /* basado-en-navegacion y mas-vendidos*/
 .seccion-header {
     display: flex;
@@ -540,6 +529,10 @@ main {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .products-carrusel {
+        grid-auto-columns: 50%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -550,5 +543,8 @@ main {
     .products-grid {
         grid-template-columns: 1fr;
     }
-}
 
+    .products-carrusel {
+        grid-auto-columns: 100%;
+    }
+}
