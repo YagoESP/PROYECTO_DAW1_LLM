@@ -1,6 +1,6 @@
 # PC Componentes - Clon 
 
-![Banner del proyecto](https://github.com/YagoESP/PROYECTO_DAW1_LLM)
+![/images/logo-llm.png](https://github.com/YagoESP/PROYECTO_DAW1_LLM)
 
 Este proyecto es una imitación de la tienda de informática PcComponentes, desarrollado como práctica colaborativa para el primer año del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web.
 
