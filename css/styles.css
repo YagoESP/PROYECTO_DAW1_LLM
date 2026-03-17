@@ -438,6 +438,7 @@ main {
     grid-auto-columns: 15.6%;
     overflow-x: auto;
     gap: 2rem;
+    text-align: center;
 }
 
 /* products-carrusel */

@@ -1,4 +1,6 @@
-const productsCarrusel = document.getElementById("products-carrusel");
+const seleccionTopCarrusel = document.getElementById("seleccion-top-carrusel"); //Referencia a el carrusel de la seleccion top
+const basadoNavegacionCarrusel = document.getElementById("basado-navegacion-carrusel"); //Referencia a el carrusel de basado en tu navegación
+const masVendidoGrid = document.getElementById("mas-vendido-grid"); //Referencia a el grid de descubre los productos más vendidos
 
 let articleList = [];
 
@@ -11,14 +13,14 @@ async function getArticles() {
 
 //4. Renderiza los datos del JSON
 function renderArticles(articlesJSON) {
-    productsCarrusel.innerHTML = "";
+    //Renderiza los primeros 12 articulos en la seleccion top
+    seleccionTopCarrusel.innerHTML = "";
     articlesJSON.slice(0, 12).forEach(article => {
-        productsCarrusel.innerHTML += `
+        seleccionTopCarrusel.innerHTML += `
             <article class="product-card"><!--Esta es una de las cards para los productos-->
                 <div><!--Contenedor para la imagen-->
                     <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
                     <img src=${article.image} alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
                 </div>
                 <div><!--Contenedor para la informacion-->
                     <p class="product-title">${article.name}</p>
@@ -26,15 +28,44 @@ function renderArticles(articlesJSON) {
                         <p class="current-price">${article.price}€</p><!--Precio con descuento ya aplicado-->
                         <p class="old-price">${article.oldPrice}€</p>
                     </div>
-                    <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                    <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                        <span>${article.rating}</span><br>
-                            <span>10 opiniones</span>
+                </div>
+            </article>
+        `;
+    });
+    //Renderiza los primeros 12 articulos en basado en tu navegación
+    basadoNavegacionCarrusel.innerHTML = "";
+    articlesJSON.slice(0, 12).forEach(article => {
+        basadoNavegacionCarrusel.innerHTML += `
+            <article class="product-card"><!--Esta es una de las cards para los productos-->
+                <div><!--Contenedor para la imagen-->
+                    <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
+                    <img src=${article.image} alt="imagen del producto" class="product-image">
+                </div>
+                <div><!--Contenedor para la informacion-->
+                    <p class="product-title">${article.name}</p>
+                    <div class="product-price"><!--Contenedor para los precios-->
+                        <p class="current-price">${article.price}€</p><!--Precio con descuento ya aplicado-->
+                        <p class="old-price">${article.oldPrice}€</p>
                     </div>
-                    <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                    <span>Envío gratis. Entrega mañana</span>
-                    <p>Ver otras opciones</p>
-                    <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
+                </div>
+            </article>
+        `;
+    });
+    //Renderiza los primeros 12 articulos en los productos más vendidos
+    masVendidoGrid.innerHTML = "";
+    articlesJSON.slice(0, 12).forEach(article => {
+        masVendidoGrid.innerHTML += `
+            <article class="product-card"><!--Esta es una de las cards para los productos-->
+                <div><!--Contenedor para la imagen-->
+                    <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
+                    <img src=${article.image} alt="imagen del producto" class="product-image">
+                </div>
+                <div><!--Contenedor para la informacion-->
+                    <p class="product-title">${article.name}</p>
+                    <div class="product-price"><!--Contenedor para los precios-->
+                        <p class="current-price">${article.price}€</p><!--Precio con descuento ya aplicado-->
+                        <p class="old-price">${article.oldPrice}€</p>
+                    </div>
                 </div>
             </article>
         `;

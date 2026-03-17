@@ -5,8 +5,7 @@
         "category":"PORTATIL",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/portatil_placeholder.webp"
     },
     {
         "id": 2,
@@ -14,8 +13,7 @@
         "category":"SOBREMESA",
         "price": 5.99,
         "oldPrice": 10.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/sobremesa_placeholder.webp"
     },
     {
         "id": 3,
@@ -23,8 +21,7 @@
         "category":"COMPONENTE",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/componente_placeholder.webp"
     },
     {
         "id": 4,
@@ -32,8 +29,7 @@
         "category":"TELEVISOR",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/televisor_placeholder.webp"
     },
     {
         "id": 5,
@@ -41,8 +37,7 @@
         "category":"SMARTPHONE",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/smartphone_placeholder.webp"
     },
     {
         "id": 6,
@@ -50,8 +45,7 @@
         "category":"ELECTRODOMESTICO",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/electrodomestico_placeholder.webp"
     },
     {
         "id": 7,
@@ -59,16 +53,14 @@
         "category":"ELECTRODOMESTICO",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/electrodomestico_placeholder.webp"
     },{
         "id": 8,
         "name": "Nombre del producto",
         "category":"SMARTPHONE",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/smartphone_placeholder.webp"
     },
     {
         "id": 9,
@@ -76,8 +68,7 @@
         "category":"TELEVISOR",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/televisor_placeholder.webp"
     },
     {
         "id": 10,
@@ -85,8 +76,7 @@
         "category":"COMPONENTE",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/componente_placeholder.webp"
     },
     {
         "id": 11,
@@ -94,8 +84,7 @@
         "category":"SOBREMESA",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/sobremesa_placeholder.webp"
     },
     {
         "id": 12,
@@ -103,8 +92,7 @@
         "category":"PORTATIL",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/portatil_placeholder.webp"
     },
     {
         "id": 13,
@@ -112,7 +100,6 @@
         "category":"PORTATIL",
         "price": 125.4,
         "oldPrice": 130.66,
-        "image": "./images/placeholder.webp",
-        "rating": "4/5*"
+        "image": "./images/portatil_placeholder.webp"
     }
 ]
