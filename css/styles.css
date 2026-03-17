@@ -27,10 +27,78 @@ header {
             transition: 0.2s;
             border-radius: 5px;
         }
+        /*Escondemos el checkbox*/
+        .offcanvas-check {
+            display: none;
+        }
+
+        /* Estilo inicial del menú (fuera de la pantalla a la izquierda) */
+        .offcanvas {
+            box-sizing: border-box;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background: white;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            .header-menu{
+                label{
+                    button{
+                        background-color: transparent;
+                        border: none;
+                        pointer-events: none; /*Desactiva los eventos del boton y accede al laber*/
+                    }
+                }
+            }
+            .title {
+                color: #ff8800; /* Naranja corporativo */
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            .principal-content{
+                summary {
+                    list-style: none; /* Quita la flecha por defecto en algunos navegadores */
+                    padding: 15px 10px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                .content {
+                    color: #2e2d2d;
+                }
+            }
+        }
+
+        /*Fondo oscuro*/
+        .capa-oscura {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        /*Cuando el checkbox está marcado, hacemos visible el menú*/
+        .offcanvas-check:checked ~ .offcanvas {
+            left: 0;
+        }
+
+        /*Cuando el checkbox está marcado, mostramos el fondo oscuro*/
+        .offcanvas-check:checked ~ .capa-oscura {
+            display: block;
+        }
+
         .barra-busqueda{
             display: flex;
             height: 3rem;
-            width: 40%;
+            width:40%;
             border: 1px solid black;
             border-radius: 5px;
             .catalogo{
@@ -38,21 +106,15 @@ header {
                 text-align: left;
                 border: none;
                 border-radius: 5px;
+                cursor: pointer;
             }
             .buscar{
-                display: flex;
                 width: 10rem;
-                input{
-                    border-radius: 0;
-                    border: none;
-                    border-left: 1px solid black;
-                    background-color: #f5f5f5;
-                }
-                button{
-                    
-                    background-color: transparent;
-                    border: none;
-                }
+                border-radius: 0;
+                border: none;
+                border-left: 1px solid black;
+                background-color: #f5f5f5;
+                flex-grow: 1; /*Permite que el input se expanda hacia la derecha*/
             }
         }
 
@@ -89,52 +151,6 @@ header {
             color: inherit;
         }
     }
-    
-    /* Escondemos el checkbox real */
-    .offcanvas-check {
-        display: none;
-    }
-
-    /* Estilo inicial del menú (fuera de la pantalla a la izquierda) */
-    .offcanvas {
-        position: fixed;
-        top: 0;
-        left: -300px; /* Ancho del menú hacia afuera */
-        width: 300px;
-        height: 100%;
-        background: white;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-        transition: all 0.3s ease;
-        z-index: 1000;
-    }
-
-    /* Capa oscura de fondo (oculta por defecto) */
-    .capa-oscura {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        display: none;
-        z-index: 999;
-    }
-
-    /* --- LA MAGIA --- */
-
-    /* Cuando el checkbox está marcado, movemos el menú a la posición 0 */
-    .offcanvas-check:checked ~ .offcanvas {
-        left: 0;
-    }
-
-    /* Cuando el checkbox está marcado, mostramos la capa oscura */
-    .offcanvas-check:checked ~ .capa-oscura {
-        display: block;
-    }
-
-    /* Evitar scroll en el body cuando está abierto (limitación CSS) */
-    /* Nota: Sin JS es difícil bloquear el scroll del body perfectamente, 
-    pero esto ayuda visualmente. */
 }
 
 /* FINALIZACION DE HEADER*/

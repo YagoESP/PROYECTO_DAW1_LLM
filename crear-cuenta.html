@@ -108,7 +108,7 @@
         }
 
         /*botón iniciar sesión*/
-        .btn-login {
+        .btn-create {
             width: 100%;
             padding: 15px;
             background-color: #ff853d;
@@ -120,10 +120,10 @@
             cursor: pointer;
         }
 
-        /*botón crear cuenta*/
+        /*botón iniciar sesion*/
         a{
             width: 100%;
-            .btn-create {
+            .btn-login {
                 width: 100%;
                 padding: 12px;
                 margin-top: 1rem;
@@ -140,7 +140,9 @@
 <body>
 
     <header class="header">
-        <img src="./images/logo-llm.png" alt="PcComponentes" class="logo">
+        <a  href="index.html"><!--target="_blank"-->
+            <img src="./images/logo-llm.png" alt="" class="logo">
+        </a>
     </header>
 
     <main class="main-container">
@@ -164,7 +166,11 @@
         </section>
 
         <section class="info-rigth">
-            <h2>Iniciar sesión</h2>
+            <h2>Crear cuenta</h2>
+
+            <div class="input-group">
+                <input type="text" placeholder="Nombre">
+            </div>
 
             <div class="input-group">
                 <input type="email" placeholder="E-mail*">
@@ -175,9 +181,14 @@
                 <i class="fa-regular fa-eye password-icon"></i>
             </div>
 
-            <button class="btn-login">Iniciar sesión</button>
-            <a href="crear-cuenta.html">
-                <button class="btn-create">Crear cuenta</button>
+            <div class="input-group">
+                <input type="password" placeholder="Repetir contraseña*">
+                <i class="fa-regular fa-eye password-icon"></i>
+            </div>
+
+            <button class="btn-create">Crear cuenta</button>
+            <a href="mi-cuenta.html">
+                <button class="btn-login">Iniciar sesión</button>
             </a>
         </section>
 

@@ -17,20 +17,73 @@
             <div class="oc">
                 <input type="checkbox" id="menu-toggle" class="offcanvas-check">
 
-                <label for="menu-toggle" class="btn-abrir">
+                <label for="menu-toggle" class="btn-abrir"> <!--El for permite marcar el checkbox al pulsarlo-->
                     ☰ Todas las categorías
                 </label>
 
                 <div class="offcanvas">
                     <div class="header-menu">
-                        <label for="menu-toggle" class="btn-cerrar">✕</label>
-                        <h5>Menú Lateral</h5>
+                        <label for="menu-toggle" class="btn-cerrar"><button>✕</button></label> <!--El for permite desmarcar el checkbox al pulsarlo-->
+                        <h2 class="title">Campañas y ofertas</h2>
+                        <hr>
+                        <h3 class="subtitle">Categorías</h3>
                     </div>
-                    <ul class="lista-nav">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Categorías</a></li>
-                        <li><a href="#">Ofertas</a></li>
-                    </ul>
+                    <div class="principal-content">
+                        <details>
+                            <summary>Componentes</summary>
+                            <div class="content">
+                                <ul>
+                                    <li>Elemento 1</li>
+                                    <li>Elemento 2</li>
+                                    <li>Elemento 3</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Ordenadores</summary>
+                            <div class="content">
+                                <ul>
+                                    <li>Elemento 1</li>
+                                    <li>Elemento 2</li>
+                                    <li>Elemento 3</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Periféricos</summary>
+                            <div class="content">
+                                <ul>
+                                    <li>Elemento 1</li>
+                                    <li>Elemento 2</li>
+                                    <li>Elemento 3</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Consolas y videojuegos</summary>
+                            <div class="content">
+                                <ul>
+                                    <li>Elemento 1</li>
+                                    <li>Elemento 2</li>
+                                    <li>Elemento 3</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Móviles y tablets</summary>
+                            <div class="content">
+                                <ul>
+                                    <li>Elemento 1</li>
+                                    <li>Elemento 2</li>
+                                    <li>Elemento 3</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
                 </div>
 
                 <label for="menu-toggle" class="capa-oscura"></label>
@@ -42,11 +95,7 @@
                     <option selected>Todo el catálogo</option>
                     <option value="1">Reacondicinados</option>
                 </select>
-
-                <div class="buscar">
-                    <input type="text" placeholder="   Buscar">
-                    <!--<button><i class="fa-solid fa-magnifying-glass"></i></button>-->
-                </div>
+                <input type="text" class="buscar" placeholder="   Buscar">
             </section>
 
             <!--Botones-->
