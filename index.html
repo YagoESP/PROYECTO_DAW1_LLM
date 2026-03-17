@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PcComponentes - Ofertas</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <script defer src="./js/app.js"></script>
 </head>
 <body>
   <header>
@@ -460,6 +461,25 @@
                             </div>
                         </div>
                     </article>
+                    <article class="product-card"><!--Esta es una de las cards para los productos-->
+                        <div class="img-container"><!--Contenedor para la imagen-->
+                            <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
+                            <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
+                            <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
+                        </div>
+                        <div><!--Contenedor para la informacion-->
+                            <p class="product-title">Nombre del producto</p>
+                            <div class="product-price"><!--Contenedor para los precios-->
+                                <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
+                                <p class="old-price">100€</p>
+                            </div>
+                            <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
+                            <div><!--Contenedor para las valoraciones-->
+                                <span>4/5*</span><br>
+                                <span>10 opiniones</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -468,7 +488,7 @@
                 <h3>Basado en tu navegación</h3>
                 <a href="#">Ver más -></a>
             </div>
-            <div class="products-carrusel">
+            <div class="products-carrusel" id="products-carrusel">
                 <article class="product-card"><!--Esta es una de las cards para los productos-->
                     <div><!--Contenedor para la imagen-->
                         <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
@@ -493,259 +513,6 @@
                     </div>
                 </article>
                 <!--Cards de relleno-->
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
-                <article class="product-card"><!--Esta es una de las cards para los productos-->
-                    <div><!--Contenedor para la imagen-->
-                        <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                        <img src="./images/placeholder.webp" alt="imagen del producto" class="product-image">
-                        <span>Trending</span><!--Etiqueta de tendencia, no aparece en todos los productos-->
-                    </div>
-                    <div><!--Contenedor para la informacion-->
-                        <p class="product-title">Nombre del producto</p>
-                        <div class="product-price"><!--Contenedor para los precios-->
-                            <p class="current-price">70€</p><!--Precio con descuento ya aplicado-->
-                            <p class="old-price">100€</p>
-                        </div>
-                        <span>¡Precio mínimmo histórico!</span><!--No aparece en todos los productos-->
-                        <div class="contenedor-valoracion"><!--Contenedor para las valoraciones-->
-                            <span>4/5*</span><br>
-                            <span>10 opiniones</span>
-                        </div>
-                        <!--Estas lineas de abajo aparecen en todos los productos menos losde Selección TOP-->
-                        <span>Envío gratis. Entrega mañana</span>
-                        <p>Ver otras opciones</p>
-                        <!--Normalmente muestra las opciones de color a la izquierda, NO está en todos los productos-->
-                    </div>
-                </article>
                 <!--FIN de las cards de relleno-->
             </div>
             
