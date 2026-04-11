@@ -470,6 +470,16 @@ main {
 
     .cabecera-seccion {
         width: 20%;
+        button{
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5a00;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px;
+        }
     }
 
     .contenedor-carrusel {
@@ -477,6 +487,20 @@ main {
 
         nav {
             display: flex;
+            overflow-x: auto;
+            button{
+                border: none;
+                background-color: whitesmoke;
+                margin: 8px;
+                padding: 8px;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color:white;
+            }
         }
 
         .products-carrusel {
