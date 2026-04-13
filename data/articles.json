@@ -3,8 +3,8 @@
         "id": 1,
         "name": "Nombre del producto",
         "category":"PORTATIL",
-        "price": 125.4,
-        "oldPrice": 130.66,
+        "price": 125.45,
+        "discount": 25,
         "image": "./images/portatil_placeholder.webp"
     },
     {
@@ -12,7 +12,7 @@
         "name": "Nombre del producto",
         "category":"SOBREMESA",
         "price": 5.99,
-        "oldPrice": 10.66,
+        "discount": 20,
         "image": "./images/sobremesa_placeholder.webp"
     },
     {
@@ -20,7 +20,7 @@
         "name": "Nombre del producto",
         "category":"COMPONENTE",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 15,
         "image": "./images/componente_placeholder.webp"
     },
     {
@@ -28,7 +28,7 @@
         "name": "Nombre del producto",
         "category":"TELEVISOR",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/televisor_placeholder.webp"
     },
     {
@@ -36,7 +36,7 @@
         "name": "Nombre del producto",
         "category":"SMARTPHONE",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/smartphone_placeholder.webp"
     },
     {
@@ -44,7 +44,7 @@
         "name": "Nombre del producto",
         "category":"ELECTRODOMESTICO",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/electrodomestico_placeholder.webp"
     },
     {
@@ -52,14 +52,14 @@
         "name": "Nombre del producto",
         "category":"ELECTRODOMESTICO",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/electrodomestico_placeholder.webp"
     },{
         "id": 8,
         "name": "Nombre del producto",
         "category":"SMARTPHONE",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/smartphone_placeholder.webp"
     },
     {
@@ -67,7 +67,7 @@
         "name": "Nombre del producto",
         "category":"TELEVISOR",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/televisor_placeholder.webp"
     },
     {
@@ -75,7 +75,7 @@
         "name": "Nombre del producto",
         "category":"COMPONENTE",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/componente_placeholder.webp"
     },
     {
@@ -83,7 +83,7 @@
         "name": "Nombre del producto",
         "category":"SOBREMESA",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/sobremesa_placeholder.webp"
     },
     {
@@ -91,7 +91,7 @@
         "name": "Nombre del producto",
         "category":"PORTATIL",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/portatil_placeholder.webp"
     },
     {
@@ -99,7 +99,7 @@
         "name": "Nombre del producto",
         "category":"PORTATIL",
         "price": 125.4,
-        "oldPrice": 130.66,
+        "discount": 20,
         "image": "./images/portatil_placeholder.webp"
     }
 ]
