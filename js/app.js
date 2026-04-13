@@ -14,62 +14,41 @@ async function getArticles() {
 //4. Renderiza los datos del JSON
 function renderArticles(articlesJSON) {
     //Renderiza los primeros 12 articulos en la seleccion top
-    seleccionTopCarrusel.innerHTML = "";
-    articlesJSON.slice(0, 12).forEach(article => {
-        seleccionTopCarrusel.innerHTML += `
-            <article class="product-card"><!--Esta es una de las cards para los productos-->
-                <div><!--Contenedor para la imagen-->
-                    <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                    <img src=.${article.image} alt="imagen del producto" class="product-image">
-                </div>
-                <div><!--Contenedor para la informacion-->
-                    <p class="product-title">${article.name}</p>
-                    <div class="product-price"><!--Contenedor para los precios-->
-                        <p class="current-price">${article.price}€</p><!--Precio con descuento ya aplicado-->
-                        <p class="old-price">${article.oldPrice}€</p>
-                    </div>
-                </div>
-            </article>
-        `;
-    });
+    render12Articles(seleccionTopCarrusel,articlesJSON);
     //Renderiza los primeros 12 articulos en basado en tu navegación
-    basadoNavegacionCarrusel.innerHTML = "";
-    articlesJSON.slice(0, 12).forEach(article => {
-        basadoNavegacionCarrusel.innerHTML += `
-            <article class="product-card"><!--Esta es una de las cards para los productos-->
-                <div><!--Contenedor para la imagen-->
-                    <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
-                    <img src=.${article.image} alt="imagen del producto" class="product-image">
-                </div>
-                <div><!--Contenedor para la informacion-->
-                    <p class="product-title">${article.name}</p>
-                    <div class="product-price"><!--Contenedor para los precios-->
-                        <p class="current-price">${article.price}€</p><!--Precio con descuento ya aplicado-->
-                        <p class="old-price">${article.oldPrice}€</p>
-                    </div>
-                </div>
-            </article>
-        `;
-    });
+    render12Articles(basadoNavegacionCarrusel,articlesJSON);
     //Renderiza los primeros 12 articulos en los productos más vendidos
-    masVendidoGrid.innerHTML = "";
+    render12Articles(masVendidoGrid,articlesJSON);
+}
+
+// 6. Renderiza 12 articulos 
+function render12Articles(seccion,articlesJSON) {
+    seccion.innerHTML = "";
     articlesJSON.slice(0, 12).forEach(article => {
-        masVendidoGrid.innerHTML += `
+        seccion.innerHTML += `
             <article class="product-card"><!--Esta es una de las cards para los productos-->
                 <div><!--Contenedor para la imagen-->
-                    <span class="discount-badge">30%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
+                    <span class="discount-badge">${article.discount}%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
                     <img src=.${article.image} alt="imagen del producto" class="product-image">
                 </div>
                 <div><!--Contenedor para la informacion-->
                     <p class="product-title">${article.name}</p>
                     <div class="product-price"><!--Contenedor para los precios-->
                         <p class="current-price">${article.price}€</p><!--Precio con descuento ya aplicado-->
-                        <p class="old-price">${article.oldPrice}€</p>
+                        <p class="old-price">${calcularPrecioConDescuento(article.price,article.discount)}€</p> 
                     </div>
                 </div>
             </article>
         `;
     });
+}
+
+// Calculamos el precio descontado
+function calcularPrecioConDescuento(precio, porcentaje) {
+  const descuento = precio * (porcentaje / 100);
+  let total = precio - descuento
+  total = Math.round(total * 100) / 100;
+  return total;
 }
 
 //2. Llama a la funcion para cargar el JSON y luego lo renderizamos
