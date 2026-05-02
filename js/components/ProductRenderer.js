@@ -1,10 +1,32 @@
+import ModalProductDetail from "./ModalProductDetail.js";
 export default class ProductRenderer {
 
     static render12Articles(seccion, articlesJSON) {
         seccion.innerHTML = "";
         articlesJSON.slice(0, 12).forEach(article => {
-            seccion.innerHTML += `
-            <article class="product-card"><!--Esta es una de las cards para los productos-->
+            if (article.discount > 0) {
+                seccion.innerHTML += this.renderDiscountedProductCard(article);
+            } else {
+                seccion.innerHTML += this.renderProductCard(article);
+            }
+        });
+        seccion.addEventListener("click", (e) => {
+            const card = e.target.closest(".product-card");
+            if (!card) return;
+
+            ModalProductDetail.openModal(card);
+        });
+    }
+
+    // Renderiza los productos con descuento
+    static renderDiscountedProductCard(article) {
+        return `
+            <article class="product-card"
+                data-id="${article.id}"
+                data-name="${article.name}"
+                data-description="${article.description}"
+                data-price="${article.price}"
+                data-discount="${article.discount}"><!--Esta es una de las cards para los productos-->
                 <div><!--Contenedor para la imagen-->
                     <span class="discount-badge">${(article.discount * 100).toFixed(0)}%</span><!--Etiqueta con el % de descuento  que se superpone a la imagen-->
                     <img src="./images/products/${article.id}.webp" alt="imagen del producto" class="product-image">
@@ -18,7 +40,27 @@ export default class ProductRenderer {
                 </div>
             </article>
         `;
-        });
+    }
+    //Renderiza los productos sin descuento
+    static renderProductCard(article) {
+        return `
+            <article class="product-card"
+                data-id="${article.id}"
+                data-name="${article.name}"
+                data-description="${article.description}"
+                data-price="${article.price}"
+                data-discount="${article.discount}"><!--Esta es una de las cards para los productos-->
+                <div><!--Contenedor para la imagen-->
+                    <img src="./images/products/${article.id}.webp" alt="imagen del producto" class="product-image">
+                </div>
+                <div><!--Contenedor para la informacion-->
+                    <p class="product-title">${article.name}</p>
+                    <div class="product-price"><!--Contenedor para los precios-->
+                        <span class="current-price">${article.price}€</span><!--Precio con descuento ya aplicado-->
+                    </div>
+                </div>
+            </article>
+        `;
     }
 
     // Calculamos el precio descontado
