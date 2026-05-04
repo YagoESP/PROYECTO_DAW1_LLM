@@ -1,4 +1,8 @@
-// DATA
+import PcComService from "./services/PcComService.js";
+import ProductRenderer from "./components/ProductRenderer.js";
+import ModalProductDetail from "./components/ModalProductDetail.js";
+
+// ── DATA ESTÁTICA ────────────────────────────────────────────────
 const categories = [
     { icon: "🎮", label: "Gaming" },
     { icon: "🖥️", label: "Gaming avanzado" },
@@ -22,155 +26,228 @@ const filters = [
     { title: "Sistema operativo", type: "list", items: ["Windows 11 Home (1567)", "Windows 11 Pro (456)", "macOS (89)", "Sin SO (234)", "Chrome OS (67)"] }
 ];
 
-const products = [
-    { id: 1, name: 'Portátil Alurin Flex Advance AMD Ryzen 7-5825U 15.6"/16GB/500GB/Windows 11', image: "https://thumb.pccomponentes.com/w-530-530/articles/1082/10827754/1754-alurin-flex-advance-amd-ryzen-7-5825u-156-16gb-500gb-ssd-windows-11-home.jpg", price: 499.99, oldPrice: 644.99, discount: 22, rating: 4.2, reviews: 421, freeShipping: true, delivery: "Entrega mañana", colors: ["#C0C0C0", "#333"] },
-    { id: 2, name: 'PcCom Revolt 5070 Intel Core i7-14650HX 16"/QHD/32GB/1TB/Windows 11 Home', image: "https://thumb.pccomponentes.com/w-530-530/articles/1091/10916735/1877-pccom-revolt-5070-intel-core-i7-14650hx-16-qhd-32gb-1tb-windows-11-home.jpg", price: 1819.99, oldPrice: 2079.99, discount: 12, rating: 4.4, reviews: 9, freeShipping: true, delivery: "Entrega mañana" },
-    { id: 3, name: 'Portátil Lenovo IdeaPad Slim 3 15AMN8 15,6" AMD Ryzen 5 7520U 16GB 512GB SSD Azul', image: "https://thumb.pccomponentes.com/w-530-530/articles/1071/10719498/1631-lenovo-ideapad-slim-3-15amn8-amd-ryzen-5-7520u-16gb-512gb-ssd-156.jpg", price: 439, oldPrice: 499, discount: 12, rating: 4.9, reviews: 20, freeShipping: true, delivery: "Entrega mañana" },
-    { id: 4, name: 'Portátil Lenovo Legion 5 15AHP10 15.1" AMD Ryzen 7 260 32GB 1TB SSD RTX 5060', image: "https://thumb.pccomponentes.com/w-530-530/articles/1091/10917459/1877-lenovo-legion-5-15ahp10-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-151.jpg", price: 1299, oldPrice: 1699, discount: 23, rating: 4.7, reviews: 51, freeShipping: true, delivery: "Entrega a partir del jueves" },
-    { id: 5, name: 'Acer Aspire Go 15 AG15-42P-R26T 15.6" AMD Ryzen 7 5825U 16GB 512GB SSD', image: "https://thumb.pccomponentes.com/w-530-530/articles/1085/10858498/1754-acer-aspire-go-15-ag15-42p-r26t-amd-ryzen-7-5825u-16gb-512gb-ssd-156.jpg", price: 469.99, oldPrice: 549, discount: 14, rating: 4.5, reviews: 208, freeShipping: true, delivery: "Entrega mañana", trending: true },
-    { id: 6, name: 'ASUS TUF Gaming A15 FA507UV-LP023W 15.6" AMD Ryzen 7 8845HS 16GB 512GB SSD RTX 4060', image: "https://thumb.pccomponentes.com/w-530-530/articles/1087/10870395/1631-asus-tuf-gaming-a15-fa507uv-lp023w-amd-ryzen-7-8845hs-16gb-512gb-ssd-rtx-4060-156.jpg", price: 899, oldPrice: 1099, discount: 18, rating: 4.6, reviews: 134, freeShipping: true, delivery: "Entrega mañana" },
-    { id: 7, name: 'HP Victus 16-s1011ns 16.1" AMD Ryzen 7 8845HS 32GB 1TB SSD RTX 4060', image: "https://thumb.pccomponentes.com/w-530-530/articles/1089/10891562/1877-hp-victus-16-s1011ns-amd-ryzen-7-8845hs-32gb-1tb-ssd-rtx-4060-161.jpg", price: 979, oldPrice: 1199, discount: 18, rating: 4.3, reviews: 67, freeShipping: true, delivery: "Entrega mañana", colors: ["#1a1a2e", "#f0f0f0"] },
-    { id: 8, name: 'MSI Katana A17 AI B8VF-285XES 17.3" AMD Ryzen 7 8845HS 16GB 1TB SSD RTX 4060', image: "https://thumb.pccomponentes.com/w-530-530/articles/1090/10901234/1877-msi-katana-a17-ai-b8vf-285xes-amd-ryzen-7-8845hs-16gb-1tb-ssd-rtx-4060-173.jpg", price: 1049, oldPrice: 1299, discount: 19, rating: 4.4, reviews: 45, freeShipping: true, delivery: "Entrega mañana" },
-    { id: 9, name: 'Lenovo IdeaPad 1 15AMN7 15.6" AMD Ryzen 5 7520U 8GB 256GB SSD', image: "https://thumb.pccomponentes.com/w-530-530/articles/1064/10644872/1631-lenovo-ideapad-1-15amn7-amd-ryzen-5-7520u-8gb-256gb-ssd-156.jpg", price: 329, oldPrice: 399, discount: 17, rating: 4.1, reviews: 312, freeShipping: true, delivery: "Entrega mañana" },
-    { id: 10, name: 'ASUS Vivobook 15 X1504ZA-NJ921W 15.6" Intel Core i5-1235U 16GB 512GB SSD', image: "https://thumb.pccomponentes.com/w-530-530/articles/1078/10782345/1631-asus-vivobook-15-x1504za-nj921w-intel-core-i5-1235u-16gb-512gb-ssd-156.jpg", price: 479, oldPrice: 549, discount: 13, rating: 4.5, reviews: 189, freeShipping: true, delivery: "Entrega mañana" }
-];
+// ── ESTADO GLOBAL ────────────────────────────────────────────────
+let allProducts = [];       // todos los productos de la API
+let filteredProducts = [];  // productos tras aplicar filtros
 
-// RENDER CATEGORIES
-document.getElementById("catCarousel").innerHTML = categories.map(c =>
-    `<button class="cat-card">
+// ── RENDER CATEGORÍAS ────────────────────────────────────────────
+document.getElementById("catCarousel").innerHTML = categories.map(c => `
+    <button class="cat-card">
         <div class="cat-icon">${c.icon}</div>
         <span>${c.label}</span>
     </button>`
 ).join("");
 
-// RENDER SIDEBAR
+// ── RENDER SIDEBAR ───────────────────────────────────────────────
 document.getElementById("sidebar").innerHTML = filters.map((f, fi) => {
     let body = "";
-    
+
     if (f.type === "price") {
         body = `
             <div class="price-inputs">
-                <input type="number" placeholder="Desde">
+                <input type="number" id="price-min" placeholder="Desde" oninput="applyFilters()">
                 <span>–</span>
-                <input type="number" placeholder="Hasta">
+                <input type="number" id="price-max" placeholder="Hasta" oninput="applyFilters()">
             </div>`;
     } else {
         const hasSearch = f.type === "search";
         const items = f.items || [];
         const max = f.max || items.length;
-        const visible = items.slice(0, max);
-        const hidden = items.slice(max);
-        
-        const searchInput = hasSearch 
-            ? `<input class="filter-search" type="text" placeholder="Buscar..." oninput="filterItems(this, ${fi})">` 
+
+        const searchInput = hasSearch
+            ? `<input class="filter-search" type="text" placeholder="Buscar..." oninput="filterItems(this, ${fi})">`
             : "";
-            
-        const filterItemsHTML = `<div class="filter-items" data-fi="${fi}">
-            ${items.map((it, ii) => `
-                <label class="filter-item" data-text="${it.toLowerCase()}" style="${ii >= max ? 'display:none' : ''}">
-                    <input type="checkbox">
-                    <span>${it}</span>
-                </label>
-            `).join("")}
-        </div>`;
-        
-        const showMoreBtn = hidden.length 
-            ? `<button class="show-more" onclick="toggleMore(this, ${fi})">Ver más (${hidden.length})</button>` 
+
+        const filterItemsHTML = `
+            <div class="filter-items" data-fi="${fi}">
+                ${items.map((it, ii) => `
+                    <label class="filter-item" data-text="${it.toLowerCase()}" style="${ii >= max ? 'display:none' : ''}">
+                        <input type="checkbox" onchange="applyFilters()">
+                        <span>${it}</span>
+                    </label>`
+        ).join("")}
+            </div>`;
+
+        const showMoreBtn = items.length > max
+            ? `<button class="show-more" onclick="toggleMore(this, ${fi})">Ver más (${items.length - max})</button>`
             : "";
-            
+
         body = searchInput + filterItemsHTML + showMoreBtn;
     }
-    
+
     return `
         <div class="filter-section">
             <div class="filter-title" onclick="toggleFilter(this)">
                 ${f.title}
                 <span class="arrow">▾</span>
             </div>
-            <div class="filter-body">
-                ${body}
-            </div>
+            <div class="filter-body">${body}</div>
         </div>`;
 }).join("");
 
-// RENDER PRODUCTS
+// ── RENDER PRODUCTOS ─────────────────────────────────────────────
 function fmt(n) {
-    return n.toLocaleString("es-ES", { minimumFractionDigits: 2 });
+    return parseFloat(n).toLocaleString("es-ES", { minimumFractionDigits: 2 });
 }
 
-document.getElementById("productGrid").innerHTML = products.map(p => {
-    const badges = `
-        ${p.discount ? `<span class="badge-discount">-${p.discount}%</span>` : ""}
-        ${p.trending ? `<span class="badge-trending">Trending</span>` : ""}
-    `;
-    
-    const colors = p.colors 
-        ? `<div class="card-colors">
-            ${p.colors.map(c => `<span class="color-dot" style="background:${c}"></span>`).join("")}
-            <span>Ver otras opciones</span>
-           </div>` 
-        : "";
-        
-    const shipping = p.freeShipping 
-        ? `<div class="card-shipping">
-            <span class="free">🚚 Envío gratis.</span>
-            <span class="delivery">${p.delivery}</span>
-           </div>` 
-        : "";
-        
-    return `
-        <div class="product-card">
-            ${badges}
-            <div class="card-img">
-                <img src="${p.image}" alt="${p.name}" loading="lazy">
-            </div>
-            <div class="card-title">${p.name}</div>
-            <div class="card-price">
-                <span class="current">${fmt(p.price)}€</span>
-                ${p.oldPrice ? `<span class="old">${fmt(p.oldPrice)}€</span>` : ""}
-            </div>
-            <div class="card-rating">
-                <span>${p.rating}/5</span>
-                <span class="star">★</span>
-                <span class="reviews">${p.reviews} opiniones</span>
-            </div>
-            ${shipping}
-            ${colors}
-            <label class="card-compare">
-                <input type="checkbox">Comparar
-            </label>
-        </div>`;
-}).join("");
+function renderProducts(products) {
+    const grid = document.getElementById("productGrid");
+    document.querySelector(".count").textContent = `${products.length} artículos`;
 
-// JS INTERACTIONS
-function toggleFilter(el) {
-    const body = el.nextElementSibling;
-    const arrow = el.querySelector(".arrow");
-    body.classList.toggle("collapsed");
-    arrow.classList.toggle("collapsed");
+    if (products.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <p>😕 No se han encontrado productos con estos filtros.</p>
+                <button onclick="resetFilters()">Limpiar filtros</button>
+            </div>`;
+        return;
+    }
+
+    grid.innerHTML = products.map(p => {
+        const discountPercent = p.discount > 0 ? Math.round(p.discount * 100) : 0;
+        const precioFinal = p.discount > 0
+            ? Math.round(p.price * (1 - p.discount) * 100) / 100
+            : p.price;
+
+        return `
+            <article class="product-card"
+                data-id="${p.id}"
+                data-name="${p.name}"
+                data-description="${p.description ?? ''}"
+                data-price="${p.price}"
+                data-discount="${p.discount ?? 0}">
+
+                ${discountPercent > 0
+                ? `<span class="badge-discount">-${discountPercent}%</span>`
+                : ""}
+
+                <div class="card-img">
+                    <img src="../images/products/${p.id}.webp"
+                         alt="${p.name}"
+                         loading="lazy"
+                         onerror="this.src='../images/portatil_placeholder.webp'">
+                </div>
+
+                <p class="card-title">${p.name}</p>
+
+                <div class="card-price">
+                    <span class="current">${fmt(precioFinal)}€</span>
+                    ${discountPercent > 0 ? `<span class="old">${fmt(p.price)}€</span>` : ""}
+                </div>
+
+                <div class="card-shipping">
+                    <span class="free">🚚 Envío gratis.</span>
+                </div>
+
+                <label class="card-compare" onclick="event.stopPropagation()">
+                    <input type="checkbox"> Comparar
+                </label>
+            </article>`;
+    }).join("");
+
+    // Delegación de eventos para abrir modal al clicar una card
+    grid.onclick = (e) => {
+        const card = e.target.closest(".product-card");
+        if (card) ModalProductDetail.openModal(card);
+    };
 }
 
-function toggleMore(btn, fi) {
+// ── LÓGICA DE FILTROS ────────────────────────────────────────────
+function applyFilters() {
+    const minPrice = parseFloat(document.getElementById("price-min")?.value) || 0;
+    const maxPrice = parseFloat(document.getElementById("price-max")?.value) || Infinity;
+
+    // Recoge todos los checkboxes marcados por grupo (fi)
+    const checkedByGroup = {};
+    document.querySelectorAll(".filter-items").forEach(container => {
+        const fi = container.dataset.fi;
+        const checked = [...container.querySelectorAll("input[type=checkbox]:checked")]
+            .map(cb => cb.parentElement.querySelector("span").textContent.toLowerCase());
+        if (checked.length) checkedByGroup[fi] = checked;
+    });
+
+    filteredProducts = allProducts.filter(p => {
+        // Filtro de precio (usando precio con descuento)
+        const precioFinal = p.discount > 0
+            ? Math.round(p.price * (1 - p.discount) * 100) / 100
+            : p.price;
+        if (precioFinal < minPrice || precioFinal > maxPrice) return false;
+
+        // Filtro de checkboxes (cada grupo activo es un AND, dentro del grupo es OR)
+        for (const fi in checkedByGroup) {
+            const grupo = checkedByGroup[fi];
+            const nombreProducto = p.name.toLowerCase();
+            const coincide = grupo.some(opcion => {
+                // Extrae solo el nombre sin el contador entre paréntesis
+                const etiqueta = opcion.replace(/\s*\(\d+\)$/, "").trim();
+                return nombreProducto.includes(etiqueta);
+            });
+            if (!coincide) return false;
+        }
+
+        return true;
+    });
+
+    renderProducts(filteredProducts);
+}
+
+function resetFilters() {
+    document.querySelectorAll(".filter-items input[type=checkbox]").forEach(cb => cb.checked = false);
+    const min = document.getElementById("price-min");
+    const max = document.getElementById("price-max");
+    if (min) min.value = "";
+    if (max) max.value = "";
+    filteredProducts = [...allProducts];
+    renderProducts(filteredProducts);
+}
+
+// ── INTERACCIONES SIDEBAR ────────────────────────────────────────
+// Estas funciones se llaman desde el HTML inline (onclick="...") —
+// deben ser globales, por eso van en window
+window.toggleFilter = function (el) {
+    el.nextElementSibling.classList.toggle("collapsed");
+    el.querySelector(".arrow").classList.toggle("collapsed");
+};
+
+window.toggleMore = function (btn, fi) {
     const container = btn.parentElement.querySelector(".filter-items");
     const hidden = container.querySelectorAll("label[style*='display:none']");
-    
     if (hidden.length) {
         hidden.forEach(l => l.style.display = "");
         btn.textContent = "Ver menos";
     } else {
         const max = filters[fi].max || 5;
-        container.querySelectorAll("label").forEach((l, i) => { 
-            if (i >= max) l.style.display = "none"; 
+        container.querySelectorAll("label").forEach((l, i) => {
+            if (i >= max) l.style.display = "none";
         });
         btn.textContent = `Ver más (${container.querySelectorAll("label").length - max})`;
     }
-}
+};
 
-function filterItems(input, fi) {
+window.filterItems = function (input, fi) {
     const val = input.value.toLowerCase();
-    const labels = input.parentElement.querySelectorAll(".filter-items label");
-    
-    labels.forEach(l => {
+    input.parentElement.querySelectorAll(".filter-items label").forEach(l => {
         l.style.display = l.dataset.text.includes(val) ? "" : "none";
     });
+};
+
+window.applyFilters = applyFilters;
+window.resetFilters = resetFilters;
+
+// ── CARGA INICIAL ────────────────────────────────────────────────
+async function init() {
+    const loading = document.getElementById("loadingState");
+    try {
+        allProducts = await PcComService.getArticles();
+        filteredProducts = [...allProducts];
+        loading.style.display = "none";
+        renderProducts(filteredProducts);
+    } catch (error) {
+        console.error("Error cargando productos:", error);
+        loading.innerHTML = `
+            <p> No se pudo conectar con la API.</p>
+            <p>Asegúrate de que <strong>php artisan serve</strong> está activo.</p>`;
+    }
 }
+
+init();

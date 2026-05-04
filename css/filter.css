@@ -102,11 +102,14 @@ h1 {
 }
 
 /* LAYOUT */
-.content {
-    display: flex;
+.filter-content {
+    display: grid;
+    grid-template-columns: 22% 78%;
     gap: 24px;
     padding-bottom: 48px;
+    align-items: start;
 }
+
 
 /* SIDEBAR */
 .sidebar {
@@ -224,7 +227,6 @@ h1 {
 
 /* GRID */
 .grid-area {
-    flex: 1;
     min-width: 0;
 }
 
@@ -460,6 +462,61 @@ h1 {
     accent-color: var(--orange);
     width: 14px;
     height: 14px;
+}
+
+/* ── Espaciado por el header fijo ── */
+.filter-page-wrapper {
+    margin-top: 9rem; /* Ajusta si tu header es más alto o más bajo */
+}
+
+/* ── Estado de carga ── */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 0;
+    color: var(--muted, #888);
+    gap: 16px;
+    grid-column: 1 / -1;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #eee;
+    border-top-color: #ff5a00;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── sin resultados ── */
+.empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 64px 0;
+    color: var(--muted, #888);
+    font-size: 15px;
+}
+
+.empty-state button {
+    background: #ff5a00;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.empty-state button:hover {
+    background: #e04e00;
 }
 
 /* RESPONSIVE */
