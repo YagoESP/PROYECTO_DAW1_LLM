@@ -135,6 +135,7 @@
             }
         }
     </style>
+    <script src="../../js/usuario.js"></script>
 </head>
 <body>
     <header class="header">
@@ -165,17 +166,18 @@
 
         <section class="info-rigth">
             <h2>Crear cuenta</h2>
+            <p id="mensaje-auth" style="color: red; display: none; text-align: center; margin-bottom: 10px;"></p>
 
             <div class="input-group">
-                <input type="text" placeholder="Nombre">
+                <input type="text" id="reg-nombre" placeholder="Nombre">
             </div>
 
             <div class="input-group">
-                <input type="email" placeholder="E-mail*">
+                <input type="email" id="reg-email" placeholder="E-mail*">
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="Contraseña*">
+                <input type="password" id="reg-pass" placeholder="Contraseña*">
                 <i class="fa-regular fa-eye password-icon"></i>
             </div>
 
@@ -184,7 +186,7 @@
                 <i class="fa-regular fa-eye password-icon"></i>
             </div>
 
-            <button class="btn-create">Crear cuenta</button>
+            <button type="button" class="btn-create">Crear cuenta</button>
             <a href="mi-cuenta.html">
                 <button class="btn-login">Iniciar sesión</button>
             </a>

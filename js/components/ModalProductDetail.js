@@ -22,10 +22,22 @@ export default class ModalProductDetail {
             modalDetalle.close(); // Cierra el modal utilizando el método close() del elemento <dialog>
             //modalDetalle.style.display = "none";
         });
-        addToCartBtn.addEventListener("click", () => {
-            // Aquí puedes agregar la lógica para añadir el producto al carrito
-            console.log(`Producto ${data.name} añadido al carrito`);// Mensajede de prueba para confirmar que el botón funciona
-        });
+        addToCartBtn.onclick = () => {
+            // Calculamos el precio según si hay descuento o no
+            let precioFinal = data.price;
+            if (parseFloat(data.discount) > 0) { // Si el descuento es mayor que cero calcula el precio final
+                precioFinal = this.calcularPrecioConDescuento(data.price, data.discount);
+            }
+
+            // Llamamos a la cesta global y le pasamos los datos reales del producto actual
+            window.cartInstance.add({
+                name: data.name,
+                price: precioFinal
+            });
+
+            // Cerramos el modal tras añadir
+            modalDetalle.close();
+        };
     }
 
     static renderProductDetail(data) {
