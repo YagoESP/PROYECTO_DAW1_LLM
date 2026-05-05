@@ -103,7 +103,25 @@
                 <a href="Login/mi-cuenta.html">
                     <button type="button" class="mi-cuenta btn-d"><i class="fa-solid fa-user"></i> Mi cuenta</button>
                 </a>
-                <button type="button" class="mi-cesta btn-d"><i class="fa-solid fa-user"></i> Mi Cesta</button>
+
+                <!-- ✅ CART SIDEBAR — igual que en index.html -->
+                <div class="cart-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="cart-check">
+                    <label for="cart-toggle" class="oc-cart">
+                        <i class="fa-solid fa-cart-shopping"></i> Mi cesta
+                    </label>
+                    <div class="cart-sidebar">
+                        <div class="cart-header">
+                            <h2 class="cart-title">Mi Cesta</h2>
+                            <label for="cart-toggle" class="btn-cerrar">
+                                <button type="button">✕</button>
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="cart-content"></div>
+                    </div>
+                    <label for="cart-toggle" class="cart-overlay"></label>
+                </div>
             </section>
         </nav>
         <hr>
@@ -132,7 +150,7 @@
             <strong>para trabajar</strong>, <strong>gaming</strong>, <strong>ligeros</strong> y <strong>2 en 1</strong>.
         </p>
 
-        <!-- CATEGORY CAROUSEL — los botones ahora filtran al hacer clic -->
+        <!-- CATEGORY CAROUSEL -->
         <div class="cat-carousel" id="catCarousel"></div>
 
         <!-- CONTENT -->
@@ -144,16 +162,11 @@
             <!-- GRID -->
             <div class="grid-area">
                 <div class="grid-top">
-
-                    <!-- Checkbox comparar — ahora activa la barra inferior -->
                     <label class="grid-top-left">
                         <input type="checkbox" id="compareMode"> Comparar
                     </label>
-
                     <div class="grid-top-right">
                         <span class="count">Cargando...</span>
-
-                        <!-- SELECT de ordenación con opciones reales -->
                         <select class="sort-btn" id="sortSelect">
                             <option value="relevancia">Ordenar por: Relevancia</option>
                             <option value="precio-asc">Precio: menor a mayor</option>
@@ -175,7 +188,7 @@
         </div>
     </div>
 
-    <!-- BARRA DE COMPARACIÓN — aparece al marcar productos -->
+    <!-- BARRA DE COMPARACIÓN -->
     <div id="compareBar" class="compare-bar" style="display:none">
         <span class="compare-label">Comparando:</span>
         <div id="compareItems" class="compare-items"></div>
@@ -289,6 +302,8 @@
         </div>
     </footer>
 
+    <!-- ✅ Cart primero, filter después -->
+    <script type="module" src="../js/components/Cart.js"></script>
     <script type="module" src="../js/filter.js"></script>
 
 </body>

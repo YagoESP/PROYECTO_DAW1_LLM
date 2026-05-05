@@ -3,7 +3,7 @@ export class Cart {
         this.container = document.querySelector(".cart-content");// Buscamos en el HTML el lugar donde se mostrarán los productos
         const savedCart = localStorage.getItem("item-cart");// Obtenemos los datos guardados del carrito en el navegador
         this.items = savedCart ? JSON.parse(savedCart) : [];// Si hay datos guardados, los transformamos a una lista; si no, creamos una vacía
-        this.render();// Ejecutamos la función para mostrar el contenido en pantalla nada más empezar
+        if (this.container) this.render();// Ejecutamos la función para mostrar el contenido en pantalla nada más empezar
     }
 
     // Añade un nuevo producto a la lista actual
@@ -49,6 +49,10 @@ export class Cart {
 
     // Renderizado de los productos
     render() {
+        if (!this.container) return; // ✅ No hace nada si no hay contenedor
+        if (this.items.length === 0) {
+            return this.container.innerHTML = "<p>Tu cesta está vacía</p>";
+        }
         // Si la lista está vacía, mostramos un mensaje informativo
         if (this.items.length === 0) {
             return this.container.innerHTML = "<p>Tu cesta está vacía</p>";
