@@ -1,6 +1,6 @@
 import PcComService from "./services/PcComService.js";
 import ProductRenderer from "./components/ProductRenderer.js";
-import ModalProductDetail from "./components/ModalProductDetail.js";
+import ModalProductDetail from "./components/ModalProductDetailFilter.js";
 
 
 // ── DATA ESTÁTICA ────────────────────────────────────────────────
@@ -123,10 +123,10 @@ function renderProducts(products) {
                 data-description="${p.description ?? ''}"
                 data-price="${p.price}"
                 data-discount="${p.discount ?? 0}">
-
+                
                 ${discountPercent > 0
-                    ? `<span class="badge-discount">-${discountPercent}%</span>`
-                    : ""}
+                ? `<span class="badge-discount">-${discountPercent}%</span>`
+                : ""}
 
                 <div class="card-img">
                     <img src="../images/products/${p.id}.webp"
@@ -143,12 +143,10 @@ function renderProducts(products) {
                 </div>
 
                 <div class="card-shipping">
-                    <span class="free">🚚 Envío gratis.</span>
+                    <span class="free"> Envío gratis.</span>
                 </div>
 
-                <label class="card-compare" onclick="event.stopPropagation()">
-                    <input type="checkbox"> Comparar
-                </label>
+                
             </article>`;
     }).join("");
 
@@ -247,10 +245,10 @@ window.resetFilters = resetFilters;
 document.getElementById("sortSelect").addEventListener("change", (e) => {
     const valor = e.target.value;
     let sorted = [...filteredProducts];
-    if (valor === "precio-asc")  sorted.sort((a, b) => a.price - b.price);
+    if (valor === "precio-asc") sorted.sort((a, b) => a.price - b.price);
     if (valor === "precio-desc") sorted.sort((a, b) => b.price - a.price);
-    if (valor === "descuento")   sorted.sort((a, b) => b.discount - a.discount);
-    if (valor === "nombre")      sorted.sort((a, b) => a.name.localeCompare(b.name));
+    if (valor === "descuento") sorted.sort((a, b) => b.discount - a.discount);
+    if (valor === "nombre") sorted.sort((a, b) => a.name.localeCompare(b.name));
     renderProducts(sorted);
 });
 
@@ -269,15 +267,15 @@ window.filterByCategory = function (label, btn) {
     btn.classList.add("active");
     const keyword = label.toLowerCase();
     const categoryMap = {
-        "gaming":                     ["gaming", "rtx", "ryzen 7", "ryzen 9", "i7", "i9"],
-        "gaming avanzado":            ["rtx 4070", "rtx 4080", "rtx 4090", "rtx 5070", "rtx 5080"],
+        "gaming": ["gaming", "rtx", "ryzen 7", "ryzen 9", "i7", "i9"],
+        "gaming avanzado": ["rtx 4070", "rtx 4080", "rtx 4090", "rtx 5070", "rtx 5080"],
         "perfectos para estudiantes": ["ryzen 5", "i5", "8gb", "256gb"],
-        "para uso profesional":       ["i7", "i9", "ryzen 9", "32gb", "workstation"],
-        "diseño gráfico y edición":   ["rtx", "32gb", "oled", "adobe"],
-        "con windows 11 home":        ["windows 11 home"],
-        "con windows 11 pro":         ["windows 11 pro"],
-        "macbook":                    ["apple", "macbook", "m2", "m3"],
-        "reacondicionados gaming":    ["reacondicionado", "gaming"],
+        "para uso profesional": ["i7", "i9", "ryzen 9", "32gb", "workstation"],
+        "diseño gráfico y edición": ["rtx", "32gb", "oled", "adobe"],
+        "con windows 11 home": ["windows 11 home"],
+        "con windows 11 pro": ["windows 11 pro"],
+        "macbook": ["apple", "macbook", "m2", "m3"],
+        "reacondicionados gaming": ["reacondicionado", "gaming"],
     };
 
     if (label === "Básicos hasta 500€") {
@@ -296,167 +294,6 @@ window.filterByCategory = function (label, btn) {
 };
 
 
-// ── BARRA DE COMPARACIÓN ─────────────────────────────────────────
-const compareList = [];
-
-
-document.getElementById("productGrid").addEventListener("change", (e) => {
-    if (!e.target.matches(".card-compare input")) return;
-    const card = e.target.closest(".product-card");
-    const id = card.dataset.id;
-    const name = card.dataset.name;
-
-    if (e.target.checked) {
-        if (compareList.length >= 3) {
-            alert("Solo puedes comparar 3 productos a la vez");
-            e.target.checked = false;
-            return;
-        }
-        compareList.push({ id, name });
-    } else {
-        const idx = compareList.findIndex(p => p.id == id);
-        if (idx !== -1) compareList.splice(idx, 1);
-    }
-    updateCompareBar();
-});
-
-
-function updateCompareBar() {
-    const bar = document.getElementById("compareBar");
-    if (compareList.length === 0) {
-        bar.style.display = "none";
-        return;
-    }
-    bar.style.display = "flex";
-    document.getElementById("compareItems").innerHTML = compareList.map(p => `
-        <span class="compare-chip">
-            ${p.name.substring(0, 35)}...
-            <button onclick="removeFromCompare(${p.id})">✕</button>
-        </span>`
-    ).join("");
-}
-
-
-window.removeFromCompare = function (id) {
-    const idx = compareList.findIndex(p => p.id == id);
-    if (idx !== -1) compareList.splice(idx, 1);
-    const cb = document.querySelector(`.product-card[data-id="${id}"] .card-compare input`);
-    if (cb) cb.checked = false;
-    updateCompareBar();
-};
-
-
-window.closeCompareBar = function () {
-    compareList.length = 0;
-    document.querySelectorAll(".card-compare input").forEach(cb => cb.checked = false);
-    document.getElementById("compareBar").style.display = "none";
-};
-
-
-// ── MODAL COMPARACIÓN ────────────────────────────────────────────
-document.getElementById("compareBtnAction").addEventListener("click", openCompareModal);
-
-
-function openCompareModal() {
-    if (compareList.length < 2) {
-        alert("Selecciona al menos 2 productos para comparar");
-        return;
-    }
-
-    const modal = document.getElementById("modal-compare");
-    const table = document.getElementById("compare-table");
-
-    const productos = compareList.map(c =>
-        allProducts.find(p => p.id == c.id) || {}
-    );
-
-    const rows = [
-        {
-            label: "Imagen",
-            render: p => `<img src="../images/products/${p.id}.webp"
-                               alt="${p.name}"
-                               onerror="this.src='../images/portatil_placeholder.webp'"
-                               style="width:120px;height:120px;object-fit:contain">`
-        },
-        { label: "Nombre", render: p => p.name || "-" },
-        {
-            label: "Precio",
-            render: p => {
-                const d = parseFloat(p.discount) || 0;
-                const precio = d > 0
-                    ? Math.round(p.price * (1 - d) * 100) / 100
-                    : p.price;
-                return d > 0
-                    ? `<strong style="color:#ff5a00">${fmt(precio)}€</strong>
-                       <span style="text-decoration:line-through;color:#999;font-size:12px">
-                       ${fmt(p.price)}€</span>`
-                    : `<strong style="color:#ff5a00">${fmt(p.price)}€</strong>`;
-            }
-        },
-        {
-            label: "Descuento",
-            render: p => parseFloat(p.discount) > 0
-                ? `<span style="color:green;font-weight:700">-${Math.round(p.discount * 100)}%</span>`
-                : `<span style="color:#aaa">Sin descuento</span>`
-        },
-        { label: "Descripción", render: p => p.description || "-" },
-        {
-            label: "Carrito",
-            render: p => `<button class="compare-add-cart"
-                              onclick="addToCartFromCompare(${p.id})">
-                              🛒 Añadir
-                          </button>`
-        }
-    ];
-
-    table.innerHTML = `
-        <table class="compare-grid">
-            <thead>
-                <tr>
-                    <th></th>
-                    ${productos.map(p => `
-                        <th>
-                            ${p.name?.substring(0, 40) || ""}...
-                            <button class="compare-remove-col"
-                                onclick="removeFromCompare(${p.id}); openCompareModal()">
-                                ✕
-                            </button>
-                        </th>`).join("")}
-                </tr>
-            </thead>
-            <tbody>
-                ${rows.map(row => `
-                    <tr>
-                        <td class="compare-row-label">${row.label}</td>
-                        ${productos.map(p => `<td>${row.render(p)}</td>`).join("")}
-                    </tr>`).join("")}
-            </tbody>
-        </table>`;
-
-    document.getElementById("btn-close-compare").onclick = () => modal.close();
-    modal.showModal();
-}
-
-
-window.openCompareModal = openCompareModal;
-
-
-window.addToCartFromCompare = function (id) {
-    const product = allProducts.find(p => p.id == id);
-    if (product) console.log(`Añadido al carrito desde comparación: ${product.name}`);
-};
-
-
-// Sobreescribe removeFromCompare para refrescar el modal si está abierto
-const _removeFromCompare = window.removeFromCompare;
-window.removeFromCompare = function (id) {
-    _removeFromCompare(id);
-    const modal = document.getElementById("modal-compare");
-    if (modal.open && compareList.length >= 2) openCompareModal();
-    else if (modal.open) modal.close();
-};
-
-
 // ── CARGA INICIAL ────────────────────────────────────────────────
 async function init() {
     const loading = document.getElementById("loadingState");
@@ -468,7 +305,7 @@ async function init() {
     } catch (error) {
         console.error("Error cargando productos:", error);
         loading.innerHTML = `
-            <p>❌ No se pudo conectar con la API.</p>
+            <p>No se pudo conectar con la API.</p>
             <p>Asegúrate de que <strong>php artisan serve</strong> está activo.</p>`;
     }
 }
