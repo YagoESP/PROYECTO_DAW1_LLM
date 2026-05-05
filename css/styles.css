@@ -7,7 +7,7 @@
     max-height: 90vh;
     overflow-y: auto;
 
-    .discount-badge{
+    .discount-badge {
         margin: 1rem;
         font-size: 1rem;
     }
@@ -19,10 +19,11 @@
         align-items: center;
         text-align: justify;
 
-        .current-price{
+        .current-price {
             font-size: 1.25rem;
         }
-        .old-price{
+
+        .old-price {
             font-size: 1rem;
         }
     }
@@ -72,32 +73,38 @@
     }
 
 }
+
 /*header*/
-header { 
+header {
     background-color: #f5f5f5;
-    
+
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
     width: 100%;
+
     nav {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+
         .logo {
             max-width: 7rem;
         }
-        .oc{
+
+        .oc {
             padding: 10px;
             height: 3rem;
             align-content: center;
         }
-        .oc:hover{
+
+        .oc:hover {
             background-color: rgba(239, 237, 237, 0.738);
             transition: 0.2s;
             border-radius: 5px;
         }
+
         /*Escondemos el checkbox*/
         .offcanvas-check {
             display: none;
@@ -113,31 +120,39 @@ header {
             width: 300px;
             height: 100%;
             background: white;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
             z-index: 1000;
-            .header-menu{
-                label{
-                    button{
+
+            .header-menu {
+                label {
+                    button {
                         background-color: transparent;
                         border: none;
-                        pointer-events: none; /*Desactiva los eventos del boton y accede al laber*/
+                        pointer-events: none;
+                        /*Desactiva los eventos del boton y accede al laber*/
                     }
                 }
             }
+
             .title {
-                color: #ff8800; /* Naranja corporativo */
+                color: #ff8800;
+                /* Naranja corporativo */
                 font-size: 24px;
                 margin-bottom: 10px;
             }
-            .principal-content{
+
+            .principal-content {
                 summary {
-                    list-style: none; /* Quita la flecha por defecto en algunos navegadores */
+                    list-style: none;
+                    /* Quita la flecha por defecto en algunos navegadores */
                     padding: 15px 10px;
                     font-weight: 600;
                     font-size: 16px;
                     cursor: pointer;
+                    border: 1px solid black;
                 }
+
                 .content {
                     color: #2e2d2d;
                 }
@@ -151,73 +166,81 @@ header {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             display: none;
             z-index: 999;
         }
 
         /*Cuando el checkbox está marcado, hacemos visible el menú*/
-        .offcanvas-check:checked ~ .offcanvas {
+        .offcanvas-check:checked~.offcanvas {
             left: 0;
         }
 
         /*Cuando el checkbox está marcado, mostramos el fondo oscuro*/
-        .offcanvas-check:checked ~ .capa-oscura {
+        .offcanvas-check:checked~.capa-oscura {
             display: block;
         }
 
-        .barra-busqueda{
+        .barra-busqueda {
             display: flex;
             height: 3rem;
-            width:40%;
+            width: 40%;
             border: 1px solid black;
             border-radius: 5px;
-            .catalogo{
+
+            .catalogo {
                 padding: 1rem;
                 text-align: left;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
             }
-            .buscar{
+
+            .buscar {
                 width: 10rem;
                 border-radius: 0;
                 border: none;
                 border-left: 1px solid black;
                 background-color: #f5f5f5;
-                flex-grow: 1; /*Permite que el input se expanda hacia la derecha*/
+                flex-grow: 1;
+                /*Permite que el input se expanda hacia la derecha*/
             }
         }
 
-        .top-bar-right{
-            a{
+        .top-bar-right {
+            a {
                 margin: 0 1rem 0 1rem;
                 text-decoration: none;
             }
-            .buscar-ia{
+
+            .buscar-ia {
                 border: 1px solid rgba(239, 237, 237, 0.738);
             }
+
             .btn-d {
                 height: 3rem;
                 padding: 1rem;
                 background-color: transparent;
                 border-radius: 5px;
             }
-            .mi-cuenta, .mi-cesta{
+
+            .mi-cuenta,
+            .mi-cesta {
                 border: none;
             }
-            .btn-d:hover{
+
+            .btn-d:hover {
                 background-color: rgba(239, 237, 237, 0.738);
             }
         }
     }
 
-    .sub-header{
+    .sub-header {
         display: flex;
         justify-content: right;
         gap: 1rem;
 
-        a{
+        a {
             text-decoration: none;
             color: inherit;
         }
@@ -429,12 +452,15 @@ main {
 .banner-samsung {
     display: flex;
     align-items: center;
-    height: 80px; /* Ajusta según la imagen */
-    background: linear-gradient(135deg, #a8c0ff 0%, #e6dada 50%, #f0f2ff 100%); /* Gradiente lila-azul claro aproximado */
+    height: 80px;
+    /* Ajusta según la imagen */
+    background: linear-gradient(135deg, #a8c0ff 0%, #e6dada 50%, #f0f2ff 100%);
+    /* Gradiente lila-azul claro aproximado */
     border-radius: 12px;
     padding: 0 24px;
     box-shadow: 0 8px 32px rgba(0, 123, 255, 0.2);
-    max-width: 728px; /* Ancho típico de banner */
+    max-width: 728px;
+    /* Ancho típico de banner */
     margin: 1rem auto;
     position: relative;
     overflow: hidden;
@@ -444,7 +470,7 @@ main {
     font-size: 24px;
     font-weight: bold;
     color: #000;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     padding: 8px 16px;
     border-radius: 20px;
     margin-right: 16px;
@@ -454,6 +480,25 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
+
+
+    ul {
+
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+
+            li {
+                display: flex;
+                flex-direction: row;
+                margin: 0.5rem;
+                border-radius: 5px;
+                text-decoration: none;
+
+            }
+
+        }
+    }
 }
 
 .title {
@@ -475,7 +520,7 @@ main {
 }
 
 .cta {
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: bold;
@@ -487,7 +532,7 @@ main {
 }
 
 .cta:hover {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .cube {
@@ -499,20 +544,21 @@ main {
     opacity: 0.8;
 }
 
-.cards{
+.cards {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.promo-card{
+.promo-card {
     margin: 1rem;
 }
 
 .promo-card img {
-  width: 100%;    
-  object-fit: contain; /* se ve completa sin deformarse */
-  display: block;
+    width: 100%;
+    object-fit: contain;
+    /* se ve completa sin deformarse */
+    display: block;
 }
 
 /* MAIN SEGUNDA PARTE */
@@ -545,7 +591,8 @@ main {
 
     .cabecera-seccion {
         width: 20%;
-        button{
+
+        button {
             border: none;
             border-radius: 5px;
             background-color: #ff5a00;
@@ -563,7 +610,8 @@ main {
         nav {
             display: flex;
             overflow-x: auto;
-            button{
+
+            button {
                 border: none;
                 background-color: whitesmoke;
                 margin: 8px;
@@ -573,8 +621,9 @@ main {
                 font-size: 16px;
                 cursor: pointer;
             }
-            button:hover{
-                background-color:white;
+
+            button:hover {
+                background-color: white;
             }
         }
 
@@ -797,10 +846,11 @@ body {
         width: 85%;
     }
 
-    .modal-detail .product-detail > div:first-child {
+    .modal-detail .product-detail>div:first-child {
         flex: 0 0 220px;
         height: 220px;
     }
+
     /*FIN Modal detalle producto */
 }
 
@@ -829,7 +879,7 @@ body {
         text-align: justify;
     }
 
-    .modal-detail .product-detail > div:first-child {
+    .modal-detail .product-detail>div:first-child {
         flex: none;
         width: 100%;
         height: 200px;
@@ -842,5 +892,6 @@ body {
     .modal-detail .modal-buttons button {
         width: 100%;
     }
+
     /*FIN Modal detalle producto */
 }
