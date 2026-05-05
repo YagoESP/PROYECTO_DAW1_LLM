@@ -201,7 +201,7 @@ header {
         .cart-check {
             display: none;
         }
-        
+
 
         /* Estilo inicial del menú (fuera de la pantalla a la derecha) */
         .cart-sidebar {
@@ -290,6 +290,7 @@ header {
 
         .top-bar-right {
             display: flex;
+
             a {
                 margin: 0 1rem 0 1rem;
                 text-decoration: none;
@@ -957,4 +958,17 @@ body {
     }
 
     /*FIN Modal detalle producto */
+
+    /* Productos top*/
+    @media (max-width: 768px) {
+        .seleccion-top {
+            flex-direction: column;
+            .cabecera-seccion {
+                width: 100%;
+            }
+            .contenedor-carrusel {
+                width: 100%;
+            }
+        }
+    }
 }
