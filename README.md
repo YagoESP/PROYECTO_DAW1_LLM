@@ -22,12 +22,14 @@ El objetivo principal es aplicar los conocimientos de desarrollo web creando una
    git clone https://github.com/YagoESP/PROYECTO_DAW1_LLM.git
 
 ## Como tener la API para tu PC
-Tienes que tener XAMPP.
+1. Abrir un terminal sobre la carpeta `api-pccomponentes`
+2. En el terminal escribir los comandos `php artisan migrate` y `php artisan db:seed`
 
-Importa en XAMPP la base de datos del archivo `pccomponentes.sql`:
+Importa en XAMPP la  versión actualizada base de datos del archivo `pccomponentes.sql`:
 1. Desde XAMPP control panel, en la fila de MySQL dale a `admin`.
-2. Crear una base de datos vacía con el nombre `pccomponentes`.
-3. Selecciona la nuva base de datos y cuando te asegures de estar dentro selecciona importar y elige el archivo `pccomponentes.sql`.
+2. Eliminar la base de datos `pccomponentes` existente.
+3. Crear una base de datos vacía con el nombre `pccomponentes`.
+4. Selecciona la nuva base de datos y cuando te asegures de estar dentro selecciona importar y elige el archivo `pccomponentes.sql`.
 
 Con esto si teneis el MySQL de XAMPP configurado en el puerto `3307` como hicimos en clase ya os debería funcionar.
 
